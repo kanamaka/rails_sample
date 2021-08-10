@@ -10,6 +10,14 @@ class TodolistsController < ApplicationController
     list.save
     redirect_to '/top'
   end
+  
+  def index
+    @lists = List.all #全てのデータを取り出すため複数形
+  end
+  
+  def show
+    @list = List.find(params{:id})
+  end
 
   private
   def list_params
